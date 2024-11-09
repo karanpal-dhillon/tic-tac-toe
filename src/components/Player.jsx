@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-const Player = ({ name, symbol, setPlayer, isActive }) => {
+const Player = ({ name, symbol, isActive, handlePlayerNameChange }) => {
   const [isEditing, setIsEditing] = useState(false);
   let playerName = <span className="player-name">{name}</span>;
   if (isEditing) {
@@ -8,7 +8,7 @@ const Player = ({ name, symbol, setPlayer, isActive }) => {
       <input
         type="text"
         value={name}
-        onChange={(e) => setPlayer(e.target.value)}
+        onChange={(e) => handlePlayerNameChange(symbol, e.target.value)}
       />
     );
   }
